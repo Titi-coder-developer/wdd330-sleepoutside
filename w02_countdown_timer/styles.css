@@ -1,0 +1,71 @@
+/* General page styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f6f2;
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+main {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Page heading */
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
+
+/* Countdown display */
+h2 {
+    font-size: 4rem;
+    color: #8b3a62;
+    margin-bottom: 25px;
+}
+
+/* Start button */
+button {
+    background-color: #8b3a62;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #672747;
+}
+
+button:disabled {
+    background-color: #999999;
+    cursor: not-allowed;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    main {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+}
