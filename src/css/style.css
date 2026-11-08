@@ -261,3 +261,19 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.cart-count {
+  position: absolute;
+  top: 5px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
