@@ -50,3 +50,9 @@ export function updateCartCount() {
     cartCount.textContent = cartItems.length;
   }
 }
+
+// Get a parameter from the URL
+export function getParam(param) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(param);
+}
