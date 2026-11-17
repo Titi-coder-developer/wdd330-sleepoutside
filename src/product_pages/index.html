@@ -2,43 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Product Details</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/product.js" type="module"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sleep Outside | Product Details</title>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/product.js" type="module"></script>
 </head>
 
 <body>
-    <header class="divider">
-        <div class="logo">
-            <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-            <a href="../index.html">
-                Sleep<span class="highlight">Outside</span>
-            </a>
-        </div>
+  <header class="divider" id="main-header"></header>
 
-        <div class="cart">
-            <a href="../cart/">Cart</a>
-        </div>
-    </header>
+  <main class="divider">
+    <nav class="breadcrumbs">
+      <a href="../index.html">Home</a>
+      <span>/</span>
+      <a href="../product_listing/index.html">Products</a>
+      <span>/</span>
+      <span id="current-product-name">Product Detail</span>
+    </nav>
 
-    <main class="divider">
-        <section class="product-detail">
-            <h3 id="product-brand"></h3>
-            <h2 id="product-name" class="divider"></h2>
-            <img id="product-image" class="divider" src="" alt="" />
-            <p id="product-price" class="product-card__price"></p>
-            <p id="product-color" class="product__color"></p>
-            <p id="product-description" class="product__description"></p>
+    <!-- Product Details -->
+    <section class="product-detail">
+      <h3 id="product-brand"></h3>
 
-            <div class="product-detail__add">
-                <button id="addToCart" data-id="">Add to Cart</button>
-            </div>
-        </section>
-    </main>
+      <h2 id="product-name" class="divider"></h2>
 
-    <footer>&copy;NOT a real business</footer>
+      <img id="product-image" class="divider" src="" alt="" />
+
+      <p id="product-price" class="product-card__price"></p>
+
+      <p id="product-color" class="product__color"></p>
+
+      <p id="product-description" class="product__description"></p>
+
+      <div class="product-detail__add">
+        <button id="addToCart">Add to Cart</button>
+      </div>
+    </section>
+
+    <!-- Customer Comments -->
+    <section class="product-comments divider">
+      <h2>Customer Comments</h2>
+
+      <form id="comment-form">
+        <label for="comment-name">Your Name</label>
+
+        <input type="text" id="comment-name" name="name" placeholder="Enter your name" required />
+
+        <label for="comment-text">Your Comment</label>
+
+        <textarea id="comment-text" name="comment" placeholder="Write your comment here..." rows="4"
+          required></textarea>
+
+        <button type="submit">Submit Comment</button>
+      </form>
+
+      <div id="comments-list">
+        <p>No comments yet. Be the first to comment!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="main-footer"></footer>
 </body>
 
 </html>

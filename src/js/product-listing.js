@@ -1,37 +1,40 @@
-
 import ProductData from "./ProductData.mjs";
-import ProductList from "./productList.mjs";
-import { getParam, updateCartCount } from "./utils.mjs";
+import ProductList from "./ProductList.mjs";
+import { getParam, loadHeaderFooter } from "./utils.mjs";
 
-// Get the category from the URL
-const category = getParam("category");
+loadHeaderFooter().catch(console.error);
 
-// Format the category name
-const categoryName = category
-    ? category
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ")
-    : "Products";
+const searchTerm = getParam("search");
+const category = getParam("category") || "tents";
 
-// Update the page heading and browser tab title
-document.querySelector("#category-title").textContent =
-    `Top Products: ${categoryName}`;
+const categoryNames = {
+  tents: "Tents",
+  backpacks: "Backpacks",
+  "sleeping-bags": "Sleeping Bags",
+  hammocks: "Hammocks",
+};
 
-document.title = `Top Products: ${categoryName}`;
+const heading = document.querySelector("#category-title");
 
-// Create the data source
+if (searchTerm) {
+  heading.textContent = `Search Results for: ${searchTerm}`;
+} else {
+  heading.textContent = `Top Products: ${categoryNames[category] || category}`;
+}
+
+document.title = heading.textContent;
+
 const dataSource = new ProductData();
+const listElement = document.querySelector(".product-list");
 
-// Create the product list
 const productList = new ProductList(
-    category,
-    dataSource,
-    document.querySelector(".product-list")
+  searchTerm || category,
+  dataSource,
+  listElement
 );
 
-// Display the products
-productList.init();
-
-// Update the cart count
-updateCartCount();
+if (searchTerm) {
+  productList.initSearch(searchTerm).catch(console.error);
+} else {
+  productList.init().catch(console.error);
+}

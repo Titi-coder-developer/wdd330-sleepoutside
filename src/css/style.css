@@ -1,6 +1,7 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
   --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -75,7 +76,6 @@ p {
   font-size: var(--small-font);
   width: 110px;
   height: 80px;
-
   flex-direction: column;
   align-items: flex-end;
   box-shadow: 1px 1px 4px var(--light-grey);
@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -113,8 +113,6 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
-
-/* End utility classes */
 
 /* Cart icon styles */
 .cart {
@@ -168,6 +166,57 @@ button {
   color: var(--dark-grey);
 }
 
+/* Product search form */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  max-width: 420px;
+  margin: 0 1rem;
+}
+
+.search-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.search-form button {
+  display: inline-block;
+  margin: 0;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Mobile search layout */
+@media screen and (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .logo {
+    width: auto;
+  }
+
+  .cart {
+    margin-left: auto;
+  }
+
+  .search-form {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+    margin: 0.5rem 0 0;
+  }
+}
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
@@ -208,7 +257,6 @@ button {
   display: grid;
   grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
-  /* max-height: 120px; */
   align-items: center;
 }
 
@@ -262,6 +310,7 @@ footer {
   padding: 1em;
 }
 
+/* Cart count */
 .cart-count {
   position: absolute;
   top: 5px;
@@ -276,4 +325,137 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+/* Product Comments */
+.product-comments {
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.product-comments h2 {
+  margin-bottom: 1rem;
+}
+
+#comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+#comment-form input,
+#comment-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font: inherit;
+}
+
+#comment-form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.comment-card {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.comment-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.comment-card p {
+  margin-bottom: 0.5rem;
+}
+
+.comment-card small {
+  color: #666;
+}
+
+/* Product grid */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0;
+  list-style: none;
+}
+
+.product-grid li {
+  flex: 1 1 140px;
+  max-width: 220px;
+}
+
+.product-grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-grid img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.product-grid h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.product-grid a:hover,
+.product-grid a:focus-visible {
+  background-color: #ddd;
+}
+
+/* Breadcrumbs navigation */
+.breadcrumbs {
+  padding: 1rem 1rem 0;
+  font-size: 0.9rem;
+  color: var(--dark-grey);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.breadcrumbs a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  margin: 0 0.5rem;
+  color: var(--light-grey);
+}
+
+.breadcrumbs #current-product-name {
+  color: var(--dark-grey);
+  font-weight: bold;
 }
