@@ -144,7 +144,6 @@ async function renderProductDetails() {
     document.querySelector("#addToCart").addEventListener("click", () => {
       addProductToCart(product);
     });
-
     // Display and handle comments
     renderComments();
 
